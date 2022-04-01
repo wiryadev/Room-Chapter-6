@@ -14,9 +14,10 @@ class StudentAdapter(
     class ViewHolder(val binding: StudentItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView =
-            StudentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(itemView)
+        val binding = StudentItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int = listStudent.size
