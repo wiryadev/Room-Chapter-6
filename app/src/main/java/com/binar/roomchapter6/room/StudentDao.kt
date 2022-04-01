@@ -11,11 +11,11 @@ interface StudentDao {
     fun getAllStudent(): List<Student>
 
     @Insert(onConflict = REPLACE)
-    fun insertStudent(student: Student):Long
+    fun insertStudent(student: Student): Long
 
     @Update
-    fun updateStudent(student: Student):Int
+    fun updateStudent(student: Student): Int
 
     @Delete
-    fun deleteStudent(student: Student):Int
+    fun deleteStudent(student: Student): Int
 }

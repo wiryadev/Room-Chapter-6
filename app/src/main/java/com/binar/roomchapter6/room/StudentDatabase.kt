@@ -6,24 +6,27 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.binar.roomchapter6.Student
 
-@Database(entities = [Student::class],version = 1)
-abstract class StudentDatabase: RoomDatabase() {
+@Database(entities = [Student::class], version = 1)
+abstract class StudentDatabase : RoomDatabase() {
     abstract fun studentDao(): StudentDao
 
-    companion object{
+    companion object {
         private var INSTANCE: StudentDatabase? = null
 
         fun getInstance(context: Context): StudentDatabase? {
-            if(INSTANCE == null){
-                synchronized(StudentDatabase::class){
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                    StudentDatabase::class.java,"Student.db").build()
+            if (INSTANCE == null) {
+                synchronized(StudentDatabase::class) {
+                    INSTANCE = Room.databaseBuilder(
+                        context.applicationContext,
+                        StudentDatabase::class.java,
+                        "Student.db"
+                    ).build()
                 }
             }
             return INSTANCE
         }
 
-        fun destroyInstance(){
+        fun destroyInstance() {
             INSTANCE = null
         }
     }
